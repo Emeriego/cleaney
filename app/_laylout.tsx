@@ -7,6 +7,13 @@ import { ActivityIndicator } from 'react-native';
 import * as Font from 'expo-font';
 
 // SplashScreen.preventAutoHideAsync()
+import { NativeWindStyleSheet } from "nativewind";
+
+//this snipet is a fix for nativewind styles not applying to the web version
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
+
 
 const RootLayout = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);

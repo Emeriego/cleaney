@@ -1,7 +1,16 @@
+//@ts-nocheck
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
 import { icons } from "../constants";
+
+interface FormFieldProps {
+  title: string;
+  value: string;
+  placeholder: string;
+  handleChangeText: (text: string) => void;
+  otherStyles?: string;
+}
 
 const FormField = ({
   title,
@@ -10,7 +19,7 @@ const FormField = ({
   handleChangeText,
   otherStyles,
   ...props
-}) => {
+}: FormFieldProps ) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
