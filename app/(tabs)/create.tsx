@@ -1,11 +1,15 @@
-import { View, Text } from 'react-native'
+//@ts-nocheck
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import ImgSearchInput from '@/components/imgSearchInput'
 
 const Create = () => {
   return (
-    <View>
+    <SafeAreaView className="bg-black h-full text-white">
       <Text>Create</Text>
-    </View>
+      <ImgSearchInput  />
+
+    </SafeAreaView>
   )
 }
 

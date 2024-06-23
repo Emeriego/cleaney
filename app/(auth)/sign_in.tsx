@@ -5,36 +5,35 @@ import { Dimensions } from 'react-native'
 import { images } from '../../constants'
 import { FormField, CustomButton} from '../../components'
 import { useState } from 'react'
-import Loader from '../../components'
-import {Link} from 'expo-router'
+// import Loader from '../../components'
+import {Link, router} from 'expo-router'
 // import { useGlobalContext } from "../../context/GlobalProvider";
-
 
 import React from 'react'
 
-const SignUp = () => {
+const SignIn = () => {
   // const { setUser, setIsLogged } = useGlobalContext();
   const [isSubmitting, setSubmitting] = useState(false);
-
   const [form, setForm] = useState({
-    username: "",
     email: "",
     password: "",
   });
-
+  // const [user, setUser] = useState({})
 
   const submit = async () => {
-    if (form.username === "" || form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill in all fields");
-    }
+    // if (form.email === "" || form.password === "") {
+    //   Alert.alert("Error", "Please fill in all fields");
+    // }
 
     setSubmitting(true);
-    try {
-      // const result = await createUser(form.email, form.password, form.username);
-      const result = {id: 1, username: "Jamey", email: "jamey@gmail.com"};
-      setUser(result);
-      setIsLogged(true);
 
+    try {
+      // await signIn(form.email, form.password);
+      const result = {id: 1, username: "Jamey", email: "jamey@gmail.com"};
+      // setUser(result);
+      // setIsLogged(true);
+
+      Alert.alert("Success", "User signed in successfully");
       router.replace("/home");
     } catch (error) {
       Alert.alert("Error", error.message);
@@ -59,15 +58,8 @@ const SignUp = () => {
         />
 
         <Text className="text-2xl font-semibold text-white mt-10 font-semibold">
-          Sign Up with Cleaney
+          Log in to Cleaney
         </Text>
-
-        <FormField
-          title="Username"
-          value={form.username}
-          handleChangeText={(e) => setForm({ ...form, username: e })}
-          otherStyles="mt-4"
-        />
 
         <FormField
           title="Email"
@@ -86,21 +78,21 @@ const SignUp = () => {
         />
 
         <CustomButton
-          title="Sign Up"
+          title="Sign In"
           handlePress={submit}
-          containerStyles="mt-8"
+          containerStyles="mt-7"
           isLoading={isSubmitting}
         />
 
         <View className="flex justify-center pt-5 flex-row gap-2">
           <Text className="text-lg text-gray-100 font-regular">
-            Already have an account?
+            Don't have an account?
           </Text>
           <Link
-            href="/sign_in"
-            className="text-lg font-semibold text-purple-200 underline"
+            href="/sign_up"
+            className="text-lg font-semibold text-white underline"
           >
-            SignIn
+            Signup
           </Link>
         </View>
       </View>
@@ -109,6 +101,6 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignIn
 
 // const styles = StyleSheet.create({})

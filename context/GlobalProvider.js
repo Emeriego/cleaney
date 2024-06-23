@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { getCurrentUser } from "../lib/appwrite";
+// import { getCurrentUser } from "../lib/appwrite";
 
 const GlobalContext = createContext();
+const AnotherContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
+export const useAnotherContext = () => useContext(AnotherContext);
 
 const GlobalProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
@@ -11,22 +13,24 @@ const GlobalProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCurrentUser()
-      .then((res) => {
-        if (res) {
-          setIsLogged(true);
-          setUser(res);
-        } else {
-          setIsLogged(false);
-          setUser(null);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    setUser({id: 1, username: "Jamey", email: "jamey@gmail.com"});
+
+    // getCurrentUser()
+    //   .then((res) => {
+    //     if (res) {
+    //       setIsLogged(true);
+    //       setUser(res);
+    //     } else {
+    //       setIsLogged(false);
+    //       setUser(null);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
   }, []);
 
   return (

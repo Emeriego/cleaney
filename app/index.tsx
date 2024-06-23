@@ -6,7 +6,7 @@ import { Link } from 'expo-router'
 import { images } from '../constants'
 import Btn from '@/components/Btn';
 import CustomButton from '@/components/CustomButton';
-import {router, Redirect} from 'expo-router';
+import { router, Redirect } from 'expo-router';
 // import { tailwind } from 'tailwindcss-react-native';
 
 export default function App() {
@@ -36,21 +36,21 @@ export default function App() {
             className='absolute w-[136px] h-[15px] -bottom-2 -right-8'
             /> */}
             <Text className="text-sm self-center max-w-[80%] text-gray-100 mt-4 text-center">
-            Here we give you access to that sparkling lifestyle you have always wanted, at affordable rate
-          </Text>
+              Here we give you access to that sparkling lifestyle you have always wanted, at affordable rate
+            </Text>
 
-          <Btn 
-            title={"Get Started"}
-            onPress={()=>{router.push('/sign_in') }}
-            type={"primary"}
-          />
-          {/* <CustomButton
+            <Btn
+              title={"Get Started"}
+              onPress={() => router.push('/sign_in') }
+              type={"primary"}
+            />
+            {/* <CustomButton
             title="Continue with Email"
             handlePress={() => {}}
             containerStyles="w-full mt-7"
           /> */}
           </View>
-<StatusBar style="auto" />
+          <StatusBar style="auto" />
         </View>
         {/* <Link href='/home' className='bg-blue-400' style={{ color: "blue" }}>Home</Link> */}
       </ScrollView>
